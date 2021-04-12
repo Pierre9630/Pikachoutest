@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion:first-of-type {
+  background-color: rgb(54, 131, 182);
+  color: rgb(13, 24, 128);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion:after {
+  content: '\25bc'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\25b2"; /* Unicode character for "minus" sign (-) */
+}
+
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+#accord .row{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+#accord .right{
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  float:right;
+    
+}
+@media screen 
+  and (max-width: 1024px){ 
+    #accord .row{
+      width:98%;
+      display: block;
+    }
+
+    #accord .row .left {
+
+        width:100%;
+        height: auto;
+        margin:0%;
+        
+    }
+        #accord .left img{
+            margin:0%;
+            width:100%;
+            height:auto;
+
+        }
+
+    #accord .row .right {
+        float:none;
+        width:100%;
+        height:auto;
+        clear:both;
+        margin:0%;
+        
+    }
+  }
+/*
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+*/
+/* Create two equal columns that sits next to each other */
+/*.column {
+  flex: 50%;
+  padding: 10px;
+  height: 800px; /* Should be removed. Only for demonstration */
+  /*flex: 1;
+  float:right;
+}
+#Dracaufeu{
+	width : 100%;
+	height : 100%;
+  float:left;
+}*/
+/*
+@media screen /*Quand ecran <= 480px*/
+  and (max-width: 480px){ 
+    .row{
+        width:98%;
+        display: block;
+    }
+
+    #header .header_adjust .left {
+
+        width:100%;
+        height: auto;
+        margin:0%;
+        background-color:red;
+    }
+        #header .left img{
+            margin:0%;
+            width:100%;
+            height:auto;
+
+        }
+
+    #header .header_adjust .right {
+        float:none;
+        width:100%;
+        height:auto;
+        clear:both;
+        margin:0%;
+        background-color:black;
+    }
+  }*/
+</style>
+</head>
+<body>
+
+<h2>Accordion</h2>
+
+<button class="accordion">Section 1</button>
+<div id="accord" class="panel">
+  <div class="row">
+    <div class="left" style="background-color:#aaa;">
+      <img id="left" src=".\media\Dracaufeu.png" alt="Dracaufeu">
+      
+    </div>
+    <div class="right" style="background-color:#bbb;">
+      <h2>Dracaufeu</h2>
+      <p>Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat perspiciatis nihil delectus fugit in aspernatur non excepturi accusamus magnam, similique animi sequi ut dignissimos quod veritatis quae velit alias itaque.</p>
+    </div>
+  </div>
+</div>
+
+<button class="accordion">Pikatchou</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) { //Menu deroulant
+  acc[i].addEventListener("click", function() { //Handler OnClick
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
